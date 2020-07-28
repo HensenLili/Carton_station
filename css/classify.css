@@ -1,0 +1,53 @@
+.nav{
+    margin-top: 1.11rem;
+    font-size: .296rem;
+    border-bottom: 0.2rem solid #f5f5f5;
+}
+.nav>div{
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: hidden;
+    height: .912rem;
+}
+.nav>div>span{
+    display:block;
+    white-space: nowrap;
+    margin: .17rem .22rem;
+    padding: 0 .2rem;
+    line-height: .572rem;
+    border-radius:.35rem;
+}
+.clo{
+    background-color: skyblue;
+}
+.nav>div::-webkit-scrollbar{
+    display: none;
+} 
+
+.card.card {
+    position: relative;
+    display: flex;
+    font-size: 0.296rem;
+    padding: 0.41rem 0.387rem;
+    color: #aaa;
+  }
+  .card > img {
+    width: 2.03rem;
+    margin-right: 0.2rem;
+    border-radius: 3px;
+  }
+  .card > div > p:nth-of-type(1) {
+    font-size: 0.41rem;
+    margin-bottom: 0.15rem;
+    color: black;
+  }
+  
+  .card > div > p:nth-of-type(2) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .clin {
+    margin: 0.15rem 0 0.33rem;
+  }

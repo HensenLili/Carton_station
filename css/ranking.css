@@ -1,0 +1,109 @@
+.nav {
+  position: fixed;
+  top: 1.11rem;
+  display: flex;
+  width: 100%;
+  height: 1.02rem;
+  text-align: center;
+  z-index: 5;
+  background-color: white;
+}
+.nav > a {
+  display: block;
+  width: 25%;
+}
+.nav > a > p {
+  font-size: 0.296rem;
+  margin: 0.3rem 0;
+  border-left: 1.5px solid rgb(236, 236, 236);
+}
+.nav > a:nth-of-type(1) > p {
+  border: none;
+}
+.top {
+  position: relative;
+  padding-bottom: 0.3rem;
+  border-bottom: 0.2rem solid #f5f5f5;
+  margin-top: 2.13rem;
+}
+.top > a >div> p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.top > a > div {
+  font-size: 0.365rem;
+  width: 2.057rem;
+  text-align: center;
+}
+.top > a > div > img:nth-of-type(1) {
+  display: block;
+  margin: 0.1rem auto;
+  width: 0.547rem;
+  height: 0.5rem;
+}
+.top > a > div > img:nth-of-type(2) {
+  width: 100%;
+  box-shadow: 0 0.06rem 0.14rem 0 rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+}
+.top > a > div > img:nth-of-type(3) {
+  display: block;
+  width: 90%;
+  height: 0.2rem;
+  filter: blur(6px);
+  margin: 0 auto 0.1rem;
+}
+.top > a > div > span {
+  font-size: 0.296rem;
+  color: #aaa;
+}
+.top1 {
+  margin: 0 auto;
+}
+.top2.top2 {
+  position: absolute;
+  top: 0.26rem;
+  left: 0.7rem;
+  width: 1.8rem;
+}
+.top3.top3 {
+  position: absolute;
+  top: 0.26rem;
+  right: 0.7rem;
+  width: 1.8rem;
+}
+.card.card {
+  position: relative;
+  display: flex;
+  font-size: 0.296rem;
+  padding: 0.41rem 0.387rem;
+  color: #aaa;
+}
+.card > img {
+  width: 2.03rem;
+  margin-right: 0.2rem;
+  border-radius: 3px;
+}
+.card > div > p:nth-of-type(1) {
+  font-size: 0.41rem;
+  margin-bottom: 0.15rem;
+  color: black;
+}
+
+.card > div > p:nth-of-type(2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.card > div > p:nth-of-type(3) {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.6rem;
+  font-size: 0.912rem;
+  color: #eee;
+}
+.clin {
+  margin: 0.15rem 0 0.33rem;
+}

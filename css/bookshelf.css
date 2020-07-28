@@ -1,0 +1,123 @@
+.nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding-top: 1.11rem;
+  height: 0.85rem;
+  font-size: 0.365rem;
+  background-color: white;
+}
+.nav > a > span {
+  display: block;
+  line-height: 0.8rem;
+}
+.recommend {
+  font-weight: 900;
+  border-bottom: 2px solid black;
+}
+.book {
+  font-size: 0.365rem;
+  margin: 2.3rem 0.388rem 0.388rem 0.188rem;
+}
+.book_nav {
+  font-size: 0.365rem;
+  background-color: #eeeeee;
+  width: 6.5rem;
+  height: 0.9rem;
+  text-align: center;
+  margin: 0.3rem auto 0.1rem;
+  border-radius: 0.45rem;
+}
+.book_nav > span {
+  display: inline-block;
+  width: 3.1rem;
+  line-height: 0.74rem;
+  margin: 0.08rem 0rem 0.08rem 0.08rem;
+  background-color: white;
+  border-radius: 0.35rem;
+}
+.book_nav > span:nth-of-type(2) {
+  margin: 0.08rem 0.08rem 0.08rem 0rem;
+}
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card {
+  font-size: 0.296rem;
+  color: #aaa;
+  width: 2.463rem;
+  height: 5.19rem;
+}
+.card > img {
+  width: 100%;
+  border-radius: 3px;
+}
+.card > p:nth-of-type(1) {
+  font-size: 0.319rem;
+  font-weight: 900;
+  color: black;
+}
+.del {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  font-size: 0.35rem;
+}
+.del_nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 0.4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.del_nav > span {
+  display: flex;
+  line-height: 0.44rem;
+}
+.del_nav > span:nth-of-type(1) > span,
+.select {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: white;
+  border-radius: 50%;
+  border: 0.02rem solid black;
+  margin-right: 0.2rem;
+}
+.del_nav > span:nth-of-type(1) > span > img,
+.select > img {
+  width: 0.5rem;
+  height: 0.5rem;
+  transform: translate(-0.05rem,-0.05rem);
+}
+.booktwo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0rem 0.4rem 1.2rem;
+}
+.booktwo > .card {
+  position: relative;
+  margin: 0;
+}
+.dell {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  line-height: 1.2rem;
+  font-size: 0.43rem;
+}
+.select {
+  position: absolute;
+  top: 2.75rem;
+  right: -0.15rem;
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0);
+}
