@@ -1,0 +1,23 @@
+{
+  "name": "carton_login",
+  "version": "1.0.0",
+  "description": "carton login test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HensenLili/Carton_station.git"
+  },
+  "author": "Hen_l",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HensenLili/Carton_station/issues"
+  },
+  "homepage": "https://github.com/HensenLili/Carton_station#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}

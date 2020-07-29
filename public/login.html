@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/auth.css">
+    <title>登陆</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            width: 750px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .container {
+            width: 970px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .container {
+            width: 1920px;
+        }
+    }
+</style>
+
+<body>
+    <section class="container">
+        <div class="lowin">
+            <div class="lowin-brand">
+                <img src="./assets/imgs/logo_ct.png" alt="logo">
+            </div>
+            <div class="lowin-wrapper">
+                <div class="lowin-box lowin-login">
+                    <div class="lowin-box-inner">
+                        <form>
+                            <p>会员登录</p>
+                            <div class="lowin-group">
+                                <label>账号 <a href="#" class="login-back-link">登录</a></label>
+                                <input type="text" name="name" autocomplete="name" value="" class="lowin-input"
+                                    id="lowin_username">
+                            </div>
+                            <div class="lowin-group password-group">
+                                <label>密码 <a href="#" class="forgot-link"></a></label>
+                                <input type="password" name="password" autocomplete="current-password"
+                                    class="lowin-input" id="lowin_pwd">
+                            </div>
+                            <button id="lowin_" class="lowin-btn" type="button">
+                                登录
+                            </button>
+
+                            <div class="text-foot">
+                                没有帐户? <a href="" class="register-link">注册</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="lowin-box lowin-register">
+                    <div class="lowin-box-inner">
+                        <form>
+                            <p>让我们创建您的帐户</p>
+                            <div class="lowin-group">
+                                <label>账号</label>
+                                <input type="text" name="name" autocomplete="name" class="lowin-input" id="rejister_username">
+                            </div>
+                            <div class="lowin-group">
+                                <label>昵称</label>
+                                <input type="text" name="nicname" autocomplete="nicname" class="lowin-input" id="rejister_nicname">
+                            </div>
+                            <div class="lowin-group">
+                                <label>密码</label>
+                                <input type="password" name="password" autocomplete="current-password"
+                                    class="lowin-input" id="rejister_pwd">
+                            </div>
+                            <div class="form-group">
+                                <input type="file" id="icon">
+                                <img width="150" height="150" src="./assets/imgs/1.jpg" id="pictrue">
+                            </div>
+                            <button id="rejister_" class="lowin-btn" type="button">
+                                注册
+                            </button>
+
+                            <div class="text-foot">
+                                已经有账户了? <a href="" class="login-link">登录</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <footer class="lowin-footer">
+
+            </footer>
+        </div>
+    </section>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./assets/js/auth.js"></script>
+<script>
+    Auth.init({
+        login_url: '#login',
+        forgot_url: '#forgot'
+    });
+
+    let Url_ = "http://47.106.96.222:2333"
+
+    // // 注册
+    var $icon = $("#icon"), $pictrue = $("#pictrue");
+    let name = null
+    $icon.on("change", function (e) {
+        // 获取图片
+        var type = this.files[0].type;
+
+        if (type == "image/png" || type == "image/jpeg") {
+            var form = new FormData();
+            let file = document.querySelector("#icon").files[0]
+            let type = file.name.split(".")[1]
+            name = `${new Date().getTime()}.${type}`
+            //创建一个假From对象
+
+            form.append("file", file, name);
+            // console.log(form)
+            // console.log(filename) 
+            // console.log(this.files[0])
+            $.ajax({
+                url: Url_+"/api/upload",
+                data: form,
+                // dataType:form,
+                type: "POST",
+                crossDomain:true,
+                contentType: false,//因为提交的是表单，content-type
+                processData: false,
+                xhrFields: {
+                    withCredentials: true // 携带跨域cookie
+                },
+                success: function (msg) {
+                    console.log(msg)
+                }
+            }).done((res) => {
+                console.log(res)
+                $pictrue.attr("src", res.img)
+                icon = res.img
+            })
+        } else {
+            alert("图片格式错误")
+        }
+    })
+
+    $("#rejister_").on("click", () => {
+
+        let rejister_username = $("#rejister_username").val(),
+        rejister_nicname = $("#rejister_nicname").val(), 
+        rejister_pwd = $("#rejister_pwd").val();
+
+        $.ajax({
+            url: Url_ + "/api/user",
+            type: "POST",
+            data: {
+                username: rejister_username,
+                nickname: rejister_nicname,
+                password: rejister_pwd,
+                avatar: name
+            },
+            dataType: "JSON",
+            success: function (msg) {
+                console.log(msg)
+                alert(msg.data.msg)
+                if (msg.success) {
+                    Auth.brand();
+                    Auth.login();
+                }
+            },
+        })
+    })
+
+
+
+    // 登陆
+    $("#lowin_").on("click", () => {
+
+        let lowin_username = $("#lowin_username").val(), lowin_pwd = $("#lowin_pwd").val();
+
+        $.ajax({
+            url: Url_ + "/api/login",
+            type: "POST",
+            dataType: "JSON",
+            headers: {
+                Origin: "http://127.0.0.1:5500"
+            },
+            data: {
+                username: lowin_username,
+                password: lowin_pwd
+            },
+            crossDomain: true,
+            xhrFields: {
+                withCredentials: true // 携带跨域cookie
+            },
+            success: function (msg) {
+                console.log(msg)
+
+            }
+        })
+
+    })
+</script>
+
+</html>
